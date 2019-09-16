@@ -1,0 +1,22 @@
+{
+  "cons_no":"",//用户号
+  "meter_id": 11111,//电表号
+  "data_date": "2019-11-11 11:11:11",//数据日期
+  "col_time": "2019-11-11 11:11:11",//终端抄表时间
+  "pap_r": "1111.1111",//正向有功总电能示值
+  "pap_r1": "1111.1111",//正向有功费率1电能示值
+  "pap_r2": "1111.1111",//正向有功费率2电能示值
+  "pap_r3": "1111.1111",//正向有功费率3电能示值
+  "pap_r4": "1111.1111",//正向有功费率4电能示值
+}
+
+
+`cons_no`     varchar(16)            DEFAULT NULL COMMENT '商户唯一id',
+`meter_id`    bigint(16)     NOT NULL COMMENT '电表唯一标识',
+`data_date`   datetime       NOT NULL COMMENT '数据日期',
+`col_time`    datetime       NOT NULL COMMENT '终端抄表时间',
+`pap_r`       decimal(11, 4) NOT NULL COMMENT '正向有功总电能示值',
+`pap_r1`      decimal(11, 4) NOT NULL COMMENT '正向有功费率1电能示值',
+`pap_r2`      decimal(11, 4) NOT NULL COMMENT '正向有功费率2电能示值',
+`pap_r3`      decimal(11, 4) NOT NULL COMMENT '正向有功费率3电能示值',
+`pap_r4`      decimal(11, 4) NOT NULL COMMENT '正向有功费率4电能示值',
