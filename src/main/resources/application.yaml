@@ -1,0 +1,139 @@
+#服务端口号
+server:
+  port: 10101
+
+
+spring:
+  datasource:
+    #数据库链接类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    #数据库airport数据源
+    airport:
+      min-idle: 5
+      max-open-prepared-statements: 20
+      useGlobalDataSourceStat: true
+      max-active: 20
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      validation-query: SELECT 1
+      use-global-data-source-stat: true
+      filters: stat,wall
+      max-wait: 20000
+      test-on-borrow: false
+      pool-prepared-statements: false
+      initial-size: 1
+      test-on-return: false
+      #password: Esop+-*/1234
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      #url: jdbc:mysql://192.168.2.6:3306/airport_db?useSSL=false&characterEncoding=utf8
+      url: jdbc:mysql://localhost:3306/airport?useSSL=false&characterEncoding=utf8
+      #username: bj_esop
+      username: root
+      #username:maintaining
+    middle:
+      min-idle: 5
+      max-open-prepared-statements: 20
+      useGlobalDataSourceStat: true
+      max-active: 20
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      validation-query: SELECT 1
+      use-global-data-source-stat: true
+      filters: stat,wall
+      max-wait: 20000
+      test-on-borrow: false
+      pool-prepared-statements: false
+      initial-size: 1
+      test-on-return: false
+      password: maintaining
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.2.6:3306/public_db?useSSL=false&characterEncoding=utf8
+      #url: jdbc:mysql://192.168.2.8:3306/public_db?useSSL=false&characterEncoding=utf8
+      username: maintaining
+  #显示mvc异常
+  mvc:
+    throw-exception-if-no-handler-found: true
+  #配置redis
+  redis:
+    password: esop-jzhs1234
+    database: 4
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1ms
+    host: 192.168.2.5
+    timeout: 3000ms
+
+#  data:
+#    mongodb:
+#      uri: mongodb://test:test@192.168.2.5:27017/test_point
+
+
+#自定义异步处理
+task:
+  core:
+    pool:
+      size: 10
+  max:
+    pool:
+      size: 30
+  keep:
+    alive:
+      seconds: 60
+  queue:
+    capacity: 200
+
+#配置分页插件
+pagehelper:
+  supportMethodsArguments: true
+  reasonable: true
+  helperDialect: mysql
+  params: count=countSql
+
+#自动驼峰映射
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+#logging:
+#  level:
+#    com:
+#      esop:
+#        domain:
+#          mapper: DEBUG
+
+
+mapper:
+  identity: MYSQL
+  not-empty: true
+  mappers: com.esop.airport.common.BaseMapper
+
+
+wx:
+  wx:
+    pay:
+      appId: wx99d12f2a7c45c76b
+      mchId: 1554897511
+      mchKey: d9539e3765babf37eed74b1f31007cb6
+      subAppId:
+      subMchId:
+
+
+
+airport:
+  weixin:
+    notifyurl: https://esop1.diannengfuwu.cn:8170/airport/third/weixin/pay_notify
+
+
+sms:
+  sdkappid: 1400110364
+  sdkkey: 29b8c300866079462a30d023d8fe11f8
+  url: https://yun.tim.qq.com/v5/tlssmssvr/sendsms
+
+three:
+  url: http://dingdev.yoflying.com:8080
+  md5key: az2ih1uYaz2ih1uYaz2ih1uYaz2ih1uY
